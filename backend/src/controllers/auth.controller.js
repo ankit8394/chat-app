@@ -8,6 +8,11 @@ export const signup = async (req,res)=>{
     const {fullName,email,password} = req.body;
 
     try{
+
+        if(!fullName || !email || !password){
+            return res.status(400).json({message: "All field are requied"});
+        }
+        
         if(password.length<8){
             return res.status(400).json({message: "Password must be at least 8 character"});
         }
@@ -47,7 +52,7 @@ export const signup = async (req,res)=>{
         {
             console.log("error in signup controller", error.message);   
             res.status(500).json({message:"Internal server error"});
-            
+
         }
 };
 
