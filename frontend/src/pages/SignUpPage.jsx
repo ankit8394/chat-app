@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useAuthStore } from '../store/useAuthStore';
 import { Eye, EyeOff, Mail, MessageSquare, User,Lock, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -31,8 +31,8 @@ const SignUpPage = () => {
     if(!formData.password)
         return toast.error("Password is required");
 
-    if(formData.password.length < 8 )
-        return toast.error("Password must be at least 8 characters");
+    if(formData.password.length < 6 )
+        return toast.error("Password must be at least 6 characters");
 
 
     return true;
@@ -68,7 +68,7 @@ const SignUpPage = () => {
                 <form onSubmit={handleSubmit} className='space-y-6'>
                     <div className="form-control">
                         <label className='label'>
-                            <span className='label-text font-medium'>Email</span>
+                            <span className='label-text font-medium'>Full Name</span>
                         </label>
                         <div className="relative">
                                    {/*for user icon */}
@@ -87,7 +87,7 @@ const SignUpPage = () => {
 
                     <div className="form-control">
                         <label className='label'>
-                            <span className='label-text font-medium'>Full Name</span>
+                            <span className='label-text font-medium'>Email</span>
                         </label>
                         <div className="relative">
                                    {/*for mail icon */}

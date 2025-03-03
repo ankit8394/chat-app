@@ -13,8 +13,8 @@ export const signup = async (req,res)=>{
             return res.status(400).json({message: "All field are requied"});
         }
         
-        if(password.length<8){
-            return res.status(400).json({message: "Password must be at least 8 character"});
+        if(password.length<6){
+            return res.status(400).json({message: "Password must be at least 6 character"});
         }
         const user = await User.findOne({email})
 
@@ -62,11 +62,11 @@ export const login =async (req,res)=>{
     {
         const user = await User.findOne({email})
         if(!user){
-            return res.status(400).json({messsage:"Invalid credentials"});
+            return res.status(400).json({message:"Invalid credentials"});
         }
         const isPasswodCorrect = await bcrypt.compare(password, user.password);
         if (!isPasswodCorrect){
-            return res.status(400).json({messsage:"Invalid credentials"});
+            return res.status(400).json({message:"Invalid credentials"});
         }
 
         generateToken(user._id,res)
@@ -81,7 +81,7 @@ export const login =async (req,res)=>{
 
     }
     catch(error){
-        console.log("error in login controller",error.messsage);
+        console.log("error in login controller",error.message);
         res.status(500).json({message:"Internal server error"});
 
     }
