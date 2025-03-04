@@ -2,6 +2,7 @@ import {create} from "zustand";
 import { axiosInstance } from "../lib/axios.js";
 import toast from "react-hot-toast";
 
+
 export const useAuthStore = create((set)=>({
     authUser: null,
     isSigningUp:false,
@@ -70,5 +71,11 @@ export const useAuthStore = create((set)=>({
         finally{
             set({isLoggingIng:false});
         }
+    },
+
+    updateProfile: async(data) =>{
+
     }
+
+  
 }));
