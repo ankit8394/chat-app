@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useAuthStore } from '../store/useAuthStore';
 import { Camera, Mail, User } from 'lucide-react';
 
@@ -8,9 +8,28 @@ const ProfilePage = () => {
 
   const {authUser, isUpdatingProfile, updateProfile} =useAuthStore();
 
-  const handleImageUpload = async(e) =>{
+  const [selectedImg, setSelectedImg] = useState(null);
 
-  }
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+  
+    const reader = new FileReader();
+  
+    reader.readAsDataURL(file);
+  
+    reader.onload = async () => {
+      const base64Image = reader.result;
+      setSelectedImg(base64Image);  // Update local state first
+  
+      try {
+        await updateProfile({ profilepic: base64Image }); // Update profile
+      } catch (error) {
+        console.error("Failed to update profile:", error);
+      }
+    };
+  };
+  
  
   return (
     <div className='h-screen pt-20'>
@@ -23,10 +42,13 @@ const ProfilePage = () => {
 
           {/*profile img upload section */}
 
+    
+
+
           <div className='flex flex-col items-center gap-4'>
             <div className='relative'>
               <img
-              src={authUser.profilepic || "/avatar.png"} 
+              src={selectedImg || authUser.profilepic || "/avatar.pn"} 
               alt="profile"
               className='size-32 rounded-full object-cover border-4'
               />
@@ -42,7 +64,7 @@ const ProfilePage = () => {
               <input 
               type="file"
               id="avatar-upload"
-              className='hidden'
+              className="hidden"
               accept='image/*'
               onChange={handleImageUpload}
               disabled={isUpdatingProfile}
