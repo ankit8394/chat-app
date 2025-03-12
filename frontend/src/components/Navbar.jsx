@@ -18,7 +18,7 @@ const Navbar = () => {
               <div className='size-9 rounded-lg bg-primary/10 flex items-center justify-center'>
                 <MessagesSquare className='h-5 w-5 text-primary' />
               </div>
-              <h1 className='text-lg font-bold'>chatty</h1>
+              <h1 className='text-lg font-bold'>StreamTalk</h1>
             </Link>
           </div>
 
