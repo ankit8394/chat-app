@@ -6,9 +6,9 @@ import {axiosInstance} from "../lib/axios";
 export const useChatStore = create((set) =>({
     messages:[],
     users:[],
-    selectedUser:[],
-    isUsersLoading:[],
-    isMessagesLoading:[],
+    selectedUser:null,
+    isUsersLoading:false,
+    isMessagesLoading:false,
 
 
 
@@ -40,4 +40,7 @@ export const useChatStore = create((set) =>({
             set ({isMessagesLoading: false});
         }
     },
+
+
+    setSelectedUser: async(selectedUser)=>set({selectedUser}),
 }))
