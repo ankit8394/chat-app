@@ -45,76 +45,10 @@ Bcrypt (Password Hashing)
 
 Socket.IO Server
 
-📸 Screenshots
-(Add a few screenshots here to showcase the login page, chat UI, and user list)
-
-⚙️ Installation
-🖥️ Clone the repository
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/streamtalk.git
-cd streamtalk
-📦 Install dependencies
-For the client:
-bash
-Copy
-Edit
-cd client
-npm install
-For the server:
-bash
-Copy
-Edit
-cd ../server
-npm install
-🌐 Environment Variables
-Create a .env file in the /server directory and add:
-
-ini
-Copy
-Edit
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-▶️ Running the Application
-Start the server
-bash
-Copy
-Edit
-cd server
-npm start
-Start the client
-bash
-Copy
-Edit
-cd client
-npm start
-The app will run on http://localhost:3000 and the server on http://localhost:5000
 
 🚀 Live Demo
-Deployed on Render: StreamTalk 🔗
+Deployed on Render: <a style="text-decoration: none" href="https://stream-talk-chat-app.onrender.com/login" target="_blank">StreamTalk</a>
 
-📁 Project Structure
-bash
-Copy
-Edit
-streamtalk/
-├── client/           # React frontend
-│   └── src/
-├── server/           # Express backend
-│   └── models/
-│   └── routes/
-│   └── controllers/
-├── README.md
-🙌 Acknowledgements
-Socket.IO
-
-Zustand
-
-TailwindCSS
-
-DaisyUI
 
 🧑‍💻 Author
 Ankit – https://github.com/ankit8394
